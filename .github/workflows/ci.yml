@@ -1,7 +1,10 @@
+
 name: Day 2 Multi-Job CI
+
 on:
   push:
   workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -9,14 +12,18 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
+
       - name: Install dependencies
         run: npm install
+
       - name: Show project files
         run: ls -la
+
   test:
     needs: build
     runs-on: ubuntu-latest
@@ -24,6 +31,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -31,5 +39,7 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+
       - name: Run test suite
         run: npm test
+
