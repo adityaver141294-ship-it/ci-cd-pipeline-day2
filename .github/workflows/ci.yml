@@ -3,7 +3,10 @@ name: Day 2 Multi-Job CI
 
 on:
   push:
+  pull_request:
   workflow_dispatch:
+  schedule:
+    - cron: "*/5 * * * *"
 
 jobs:
   build:
